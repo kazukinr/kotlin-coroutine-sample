@@ -21,10 +21,12 @@ class GithubApiClient constructor(private val service: Service) : GithubApi {
             .create(Service::class.java)
     )
 
-    override fun fetchRepos(user: String): List<Repo> =
-        service.fetchRepos(user)
+    override fun fetchRepos(user: String): List<Repo> {
+        return service.fetchRepos(user)
             .execute()
             .body() ?: emptyList()
+    }
+
 
     interface Service {
 

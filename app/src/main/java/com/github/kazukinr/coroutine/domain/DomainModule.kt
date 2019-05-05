@@ -1,6 +1,7 @@
 package com.github.kazukinr.coroutine.domain
 
 import com.github.kazukinr.coroutine.data.DataModule
+import dagger.Binds
 import dagger.Module
 
 @Module(
@@ -9,4 +10,7 @@ import dagger.Module
     ]
 )
 interface DomainModule {
+
+    @Binds
+    fun bindsFetchRepos(impl: FetchReposImpl): FetchRepos
 }
